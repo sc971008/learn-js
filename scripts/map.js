@@ -10,7 +10,7 @@ const originalArray = [
     // Creating a new object with the same properties
     // return { id: item.id, name: item.name.toUpperCase(), age: item.age };
     // spread syntax creates a shallow copy
-    return { ...item, name: item.name.toUpperCase() };
+    return { id: item.id, name: item.name.toUpperCase(),age:item.age };
   });
   
   // Displaying the original and new arrays

@@ -13,15 +13,22 @@ window.onload = function() {
               // empty the list so that we don't display duplicate entries
               // the display is regenerated every time a search term is entered.
               list.innerHTML = '';
-
+              myHistory.unshift(inp.value);
+              
+              let myHistoryCopy = Array.from(myHistory);
+              myHistoryCopy.sort(function(a,b){
+                return a.length - b.length;
+              })
               // loop through the sorted array, and display all the search terms in the list
               for (const itemText of myHistoryCopy) {
-                
+                const li = document.createElement('li');
+                li.textContent = itemText;
+                list.appendChild(li);
               }
 
               // If the array length is 5 or more, remove the oldest search term
               if (myHistory.length >= MAX_HISTORY) {
-                
+                myHistory.pop();
               }
 
               // empty the search input and focus it, ready for the next term to be entered
